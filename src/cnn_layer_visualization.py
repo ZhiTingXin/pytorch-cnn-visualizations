@@ -8,6 +8,7 @@ import numpy as np
 
 import torch
 from torch.optim import Adam
+from PIL import Image
 from torchvision import models
 
 from misc_functions import preprocess_image, recreate_image, save_image
@@ -40,6 +41,8 @@ class CNNLayerVisualization():
         self.hook_layer()
         # Generate a random image
         random_image = np.uint8(np.random.uniform(150, 180, (224, 224, 3)))
+        print("image", random_image)
+        # random_image = Image.open("dog.jpg")
         # Process image and return variable
         processed_image = preprocess_image(random_image, False)
         # Define optimizer for the image
